@@ -23,3 +23,7 @@ C:\Users\berka\Desktop\MonoGame Projects\MonoGame\ShootingTarget\obj\Debug\net6.
 C:\Users\berka\Desktop\MonoGame Projects\MonoGame\ShootingTarget\obj\Debug\net6.0\ShootingTarget.pdb
 C:\Users\berka\Desktop\MonoGame Projects\MonoGame\ShootingTarget\obj\Debug\net6.0\ShootingTarget.genruntimeconfig.cache
 C:\Users\berka\Desktop\MonoGame Projects\MonoGame\ShootingTarget\obj\Debug\net6.0\ref\ShootingTarget.dll
+C:\Users\berka\Desktop\MonoGame Projects\MonoGame\ShootingTarget\bin\Debug\net6.0\Content\crosshairs.xnb
+C:\Users\berka\Desktop\MonoGame Projects\MonoGame\ShootingTarget\bin\Debug\net6.0\Content\galleryFont.xnb
+C:\Users\berka\Desktop\MonoGame Projects\MonoGame\ShootingTarget\bin\Debug\net6.0\Content\sky.xnb
+C:\Users\berka\Desktop\MonoGame Projects\MonoGame\ShootingTarget\bin\Debug\net6.0\Content\target.xnb
