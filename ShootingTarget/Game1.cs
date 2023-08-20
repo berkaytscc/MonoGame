@@ -21,6 +21,8 @@ namespace ShootingTarget
         private const int _targetRadius = 45;       // 90px width - 90px height for target.png
         private int _score = 0;
 
+        private double _timer = 10;
+
         MouseState _mouseState;
 
         private bool _mouseReleased = true;
@@ -29,7 +31,7 @@ namespace ShootingTarget
         {
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            IsMouseVisible = true;
+            IsMouseVisible = false;
         }
 
         protected override void Initialize()
@@ -43,23 +45,34 @@ namespace ShootingTarget
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            _targetSprite = Content.Load<Texture2D>("target");
-            _crosshairSprite = Content.Load<Texture2D>("crosshairs");
-            _backgroundSprite = Content.Load<Texture2D>("sky");
-            _gameFont = Content.Load<SpriteFont>("galleryFont");
+            LoadAssets();
         }
 
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
+            if(Keyboard.GetState().IsKeyDown(Keys.Escape))
+            {
+                IsMouseVisible = true;
+            }
+
+            if(_timer > 0)
+            {
+                _timer -= gameTime.ElapsedGameTime.TotalSeconds;
+            }
+
+            if(_timer < 0)
+            {
+                _timer = 0;
+            }
 
             _mouseState = Mouse.GetState();
 
             if (_mouseState.LeftButton == ButtonState.Pressed && _mouseReleased == true)
             {
+                IsMouseVisible = false;
+
                 float mouseTargetDistance = Vector2.Distance(_targetPosition, _mouseState.Position.ToVector2());
-                if (mouseTargetDistance < _targetRadius)
+                if (mouseTargetDistance < _targetRadius && _timer > 0)
                 {
                     _score++;
 
@@ -83,15 +96,41 @@ namespace ShootingTarget
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
+            HandleSpriteBatch();
+
+            base.Draw(gameTime);
+        }
+
+        private void LoadAssets()
+        {
+            _targetSprite = Content.Load<Texture2D>("target");
+            _crosshairSprite = Content.Load<Texture2D>("crosshairs");
+            _backgroundSprite = Content.Load<Texture2D>("sky");
+            _gameFont = Content.Load<SpriteFont>("galleryFont");
+        }
+
+        private void HandleSpriteBatch()
+        {
             _spriteBatch.Begin();
 
             _spriteBatch.Draw(_backgroundSprite, Vector2.Zero, Color.White);
-            _spriteBatch.DrawString(_gameFont, $"Score: {_score}", new Vector2(100, 100), Color.White);
-            _spriteBatch.Draw(_targetSprite, new Vector2(_targetPosition.X - _targetRadius, _targetPosition.Y - _targetRadius), Color.White);
+            _spriteBatch.DrawString(_gameFont, $"Score: {_score}", new Vector2(3, 3), Color.White);
+            _spriteBatch.DrawString(_gameFont, $"Time: {Math.Ceiling(_timer)}", new Vector2(3, 40), Color.White);
+            if (_timer > 0)
+            {
+                _spriteBatch.Draw(_targetSprite, new Vector2(_targetPosition.X - _targetRadius, _targetPosition.Y - _targetRadius), Color.White);
+            }
+            else
+            {
+                _spriteBatch.Draw(_targetSprite, new Vector2(_targetPosition.X - _targetRadius, _targetPosition.Y - _targetRadius), Color.Gray);
+            }
+
+            if(!IsMouseVisible)
+            {
+                _spriteBatch.Draw(_crosshairSprite, new Vector2(_mouseState.X - 25, _mouseState.Y - 25), Color.White);
+            }
 
             _spriteBatch.End();
-
-            base.Draw(gameTime);
         }
     }
 }
