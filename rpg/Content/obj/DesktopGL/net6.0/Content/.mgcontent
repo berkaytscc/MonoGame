@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Profile>Reach</Profile>
+  <Platform>DesktopGL</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Users/berka/Desktop/MonoGame Projects/MonoGame/rpg/Content/background.png</File>
+    <File>C:/Users/berka/Desktop/MonoGame Projects/MonoGame/rpg/Content/ball.png</File>
+    <File>C:/Users/berka/Desktop/MonoGame Projects/MonoGame/rpg/Content/Player/player.png</File>
+    <File>C:/Users/berka/Desktop/MonoGame Projects/MonoGame/rpg/Content/Player/walkDown.png</File>
+    <File>C:/Users/berka/Desktop/MonoGame Projects/MonoGame/rpg/Content/Player/walkLeft.png</File>
+    <File>C:/Users/berka/Desktop/MonoGame Projects/MonoGame/rpg/Content/Player/walkRight.png</File>
+    <File>C:/Users/berka/Desktop/MonoGame Projects/MonoGame/rpg/Content/Player/walkUp.png</File>
+    <File>C:/Users/berka/Desktop/MonoGame Projects/MonoGame/rpg/Content/skull.png</File>
+    <File>C:/Users/berka/Desktop/MonoGame Projects/MonoGame/rpg/Content/Sounds/blip.wav</File>
+    <File>C:/Users/berka/Desktop/MonoGame Projects/MonoGame/rpg/Content/Sounds/nature.ogg</File>
+  </SourceFiles>
+  <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+  </DestFiles>
+</SourceFileCollection>
